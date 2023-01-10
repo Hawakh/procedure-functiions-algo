@@ -1,0 +1,47 @@
+PROCEDURE DOT-Product(v1,v2: ARRAY_OF FLOAT[3],var ps)
+VAR
+    ps:=0;
+    i:INTEGER;
+BEGIN
+    FOR i FROM 0 TO v1.length-1  DO
+        ps:v1[i]*v2[i];
+    END_FOR
+END
+
+//if procedure is became a function
+
+
+FUNCTION DOT-Product(v1,v2: ARRAY_OF FLOAT[3] ): FLOAT
+VAR
+    ps:FLOAT:=0;
+    i:INTEGER;
+BEGIN
+    FOR i FROM 0 TO v1.length-1  DO
+        ps:v1[i]*v2[i];
+    END_FOR
+    RETURN ps ;
+END
+
+
+
+ALGORITHM DOT-Product
+type Ens_tab: ARRAY_OF Float[1..n];
+VAR
+v1,v2:Ens_tab;
+i;integer;
+BEGIN
+ps:FLOAT:=0;
+    write("entrer les valeurs de premier vecteur")
+    FOR i FROM 0 TO n-1  DO
+        read(v1[i]);
+    END_FOR
+    write("entrer les valeurs de second vecteur")
+    FOR i FROM 0 TO n-1  DO
+        read(v2[i]);
+    END_FOR
+    DOT-Product(v1,v2,ps)
+    IF (ps:=0) THEN
+        write("v1 and v2 sont orthogonaux")
+    END_IF
+
+END
