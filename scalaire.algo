@@ -42,6 +42,8 @@ ps:FLOAT:=0;
     DOT-Product(v1,v2,ps)
     IF (ps:=0) THEN
         write("v1 and v2 sont orthogonaux")
+    ELSE
+       write("v1 and v2 ne sont pas orthogonaux")
     END_IF
 
 END

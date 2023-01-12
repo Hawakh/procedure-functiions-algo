@@ -1,0 +1,98 @@
+// tri simple_ buble sorting
+// exemple
+(51428)__> 
+//first pass i=0
+(51428)---(15428)
+(15428)---(14528)
+(14528)---(14258)
+(14258)---(14258)
+// i=1
+(14258)--(14258)
+(14258)--(12458)
+(12458)--(12458)
+(12458)--(12458)
+third pas without any swap
+PROCEDURE swap(var xp: INTEGER, var yp:INTEGER)
+VAR
+    tmp: INTEGER;
+    
+BEGIN
+    
+    tmp:=xp;
+    xp:=yp;
+    yp:=tmp;
+END
+PROCEDURE bubble_sort(var tab: ARRAY_OF INTEGER)
+VAR
+    i,n: INTEGER
+BEGIN
+    n:=tab.length;
+    FOR i FROM 0 TO n-1  DO
+    FOR j FROM 0 TO n-i-1  DO
+        
+        IF (tab[j]> tab[j+1]) THEN
+            swap(tab[j],tab[j+1])
+        END_IF
+    END_FOR
+        
+        
+    END_FOR
+    
+END
+// tri selection
+arr[]= 64 25 12 22 11
+// trouver l'element minimum dans arr [0..4]
+// on le place au debut
+11 25 12 22 64
+// trouvez l'element minimum et le placer en avant [1..4]
+11 12 25 22 64
+// trouvez l'element minimum et le placer en avant [2..4]
+11 12 22 25 64
+// trouvez l'element minimum et le placer en avant [3..4]
+11 12 22 25 64
+PROCEDURE selection(VAR arr: ARRAY_OF INTEGER)
+VAR
+    i,j,n, min_index: INTEGER
+BEGIN
+    n:= array.length
+    FOR i FROM 0 TO n-1  DO
+        min_index:=i
+    FOR j FROM i+1 TO max n-1 step  DO
+        IF (arr[j]< arr[min_index]) THEN
+            
+            min_index:=j
+        END_IF
+    
+    swap(arr[min_index], arr[j])
+    END_FOR
+    END_FOR
+    
+END
+// tri insertion
+12, 11, 13, 5, 6
+//i=1, 11 est le clee; puisque 11 est inferieur a 12 donc permutation
+11, 12, 13, 5,6
+//i=2; 13 est le clee 13 restera a sa position
+11, 12, 13, 5, 6
+//i=3; 5 est le clee 5<13 and 5<12 and 5<11 donc
+5, 11, 12, 13, 6
+//i=4; 6 est le clee 6<13 and 6<12 and 6<11 but 6>5
+5, 6, 11, 12, 13
+PROCEDURE insertion(var arr: ARRAY_OF INTEGER)
+VAR
+    i,j,n,current: INTEGER;
+    
+BEGIN
+    
+    FOR i FROM 1 TO n-1  DO
+        
+        current:= arr[i]
+        j:=i-1
+    WHILE (j>=0 and arr[j]> current ) DO
+        
+        arr[j+1]= arr[j];
+        j:=j-1;
+    END_WHILE
+    arr[j+1]= current
+    END_FOR
+END
